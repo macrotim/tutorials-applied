@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>The Basics of jQuery Plugins</title>
+    <style>
+        body { font-size: 20pt; text-align: center; }
+        .greenified { text-transform: uppercase; }
+    </style>
+</head>
+
+<body>
+    The
+    <a>grass</a>
+    is always
+    <a>greener</a>
+    on the other side.
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    (function($) {
+        var shade = "#556b2f";  // A private variable.
+    
+        /**
+         * By defining a new function in the $.fn namespace, it can be called by
+         * any jQuery element e.g. $(el).greenify().
+         */
+        $.fn.greenify = function(options) {
+            var settings = $.extend({
+                color: shade,
+                backgroundColor: "#fff"
+            }, options);
+    
+            this.css({
+                color: settings.color,
+                backgroundColor: settings.backgroundColor
+            });
+        
+            return this; // enables chaining
+        };
+    }(jQuery));
+    
+    (function() {
+        $("a:first-child").greenify();
+    
+        $("a:nth-child(2)")
+            .greenify({ color: '#009900' })
+            .addClass("greenified");
+    }());
+</script>

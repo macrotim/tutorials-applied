@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Click Counter: A jQuery Plugin</title>
+    <style>
+        body { text-align: center; }
+        .click-counter { cursor: pointer; font-size: 20pt; padding: 10px; 
+            /* Disable text highlighting. */
+            -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; }
+        .click-counter:hover { background-color: #ffdb99; }
+    </style>
+</head>
+
+<body>
+    <div>Each counter indicates the <br>number of times it was clicked.</div>
+    <span class="click-counter" data-count="2"></span>
+    <a class="click-counter" data-count="4"></a>
+    <p class="click-counter" data-count="8"></p>
+    <div class="click-counter" data-count="16"></div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="./counter.js"></script>
+<script>
+    (function() {
+        $(".click-counter").counter();
+    }());
+</script>
