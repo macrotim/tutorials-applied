@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AngularJS Tutorials</title>
+    <style>
+    body > div > div { padding: 20px; }
+    </style>
+  </head>
+  <body>
+    <div ng-app="myApp">
+      <div>
+        Binding lets you evaluate expressions:
+        {{ 2 + 4 }}, {{ "hehe" + "." }}
+      </div>
+      <div ng-controller="Ctrl">
+        The next value is defined in javascript.
+        <h1>{{ data.message }}</h1>
+      </div>
+      <div>
+        <div>
+          Enter a value to change the text.
+          <div><input type="text" ng-model="data.message"></div>
+          <div>&gt; <span>{{ data.message }}</span></div>
+        </div>
+        <div ng-controller="FirstCtrl">
+          This controller is removed from the scope of the input above.
+          <div><input type="text" ng-model="message"></div>
+          <div>&gt; <span>{{ message }}</span></div>
+        </div>
+      </div>
+      <div>
+        Sharing data btwn two controllers.
+        <div ng-controller="FirstAppCtrl">
+          <div>&gt; <span>{{ data.message }}</span></div>
+        </div>
+        <div ng-controller="SecondAppCtrl">
+          <div>&gt; <span>{{ data.message }}</span></div>
+        </div>
+      </div>
+      <div>
+        Defining a method "reversed" on the scope.
+        <div ng-controller="MethodCtrl1">
+            <input type="text" ng-model="data.message">
+            <h1>{{ data.message }}</h1>
+        </div>
+        <div ng-controller="MethodCtrl2">
+            <h1>{{ reversed(data.message) }}</h1>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+  <script src="./main.js"></script>
+</html>
