@@ -1,0 +1,2 @@
+flask-admin==1.1.0
+flask-sqlalchemy==2.0

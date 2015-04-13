@@ -1,0 +1,9 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+    <div>Hello World from MyView!</div>
+
+    <h1>Demo of url_for</h1>
+    <div>{{ url_for('myview1.index') }}</div>
+    <div>{{ url_for('test1.index') }}</div>
+    <div>{{ url_for('test2.index') }}</div>
+{% endblock %}
