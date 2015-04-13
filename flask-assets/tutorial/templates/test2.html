@@ -1,0 +1,4 @@
+{% assets filters="jsmin", output="gen/packed.js",
+          "js/jquery.min.js", "js/hello.js" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
