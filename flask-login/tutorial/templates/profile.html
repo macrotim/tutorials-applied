@@ -1,0 +1,5 @@
+{% if current_user.is_authenticated() %}
+    Welcome {{ current_user.username }}!
+{% endif %}
+
+<div><a href="/logout">Logout</a></div>
