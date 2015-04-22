@@ -1,0 +1,41 @@
+<!-- You can load this index.html in the web browser.
+     It does not require a server. -->
+<html>
+  <head>
+    <title>React.js: A Live Timer</title>
+    <script src="https://fb.me/react-0.13.1.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.1.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <div id="more-content"></div>
+  </body>
+
+  <script type="text/jsx">
+  var Timer = React.createClass({
+    getInitialState: function() {
+      return {secondsElapsed: 0};
+    },
+    tick: function() {
+      this.setState({secondsElapsed: this.state.secondsElapsed + 1});
+    },
+    // begin the interval when created
+    componentDidMount: function() {
+      this.interval = setInterval(this.tick, 1000);
+    },
+    // when destroyed
+    componentWillUnmount: function() {
+      clearInterval(this.interval);
+    },
+    render: function() {
+      return (
+        <div>Seconds Elapsed: {this.state.secondsElapsed}</div>
+      );
+    }
+  });
+  
+  React.render(
+    <Timer />, 
+    document.getElementById('content'));
+  </script>
+</html>

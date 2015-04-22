@@ -1,0 +1,24 @@
+<!-- You can load this index.html in the web browser.
+     It does not require a server. -->
+<html>
+  <head>
+    <title>Hello React</title>
+    <script src="https://fb.me/react-0.13.1.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.1.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+  </body>
+
+  <script type="text/jsx">
+  var HelloMessage = React.createClass({
+    render: function() {
+      return <div>Hello {this.props.name}</div>;
+    }
+  });
+  
+  React.render(
+    <HelloMessage name="John" />, 
+    document.getElementById('content'));
+  </script>
+</html>

@@ -1,0 +1,60 @@
+<!-- You can load this index.html in the web browser.
+     It does not require a server. -->
+<html>
+  <head>
+    <title>React.js: TODO List</title>
+    <script src="https://fb.me/react-0.13.1.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.1.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+  </body>
+
+  <script type="text/jsx">
+  var TodoList = React.createClass({
+    render: function() {
+      var createItem = function(itemText, index) {
+        return <li key={index + itemText}>{itemText}</li>;
+      };
+      return <ul>{this.props.items.map(createItem)}</ul>;
+    }
+  });
+
+  // Note: onChange is a bit odd at first glance.
+
+  var TodoApp = React.createClass({
+    getInitialState: function() {
+      return {
+        items: [], // each item in the todo list
+        text: ''   // the current text entered into the text field
+      };
+    },
+    // Called for each change made to the text field.
+    // Note: Oddly, you cannot type text into the field without this method.
+    onChange: function(e) {
+      this.setState({text: e.target.value});
+    },
+    handleSubmit: function(e) {
+      e.preventDefault();
+      var nextItems = this.state.items.concat([this.state.text]);
+      var nextText = '';
+      this.setState({items: nextItems, text: nextText});
+    },
+    render: function() {
+      return (
+        <div>
+          <h3>TODO</h3>
+          <TodoList items={this.state.items} />
+          <form onSubmit={this.handleSubmit}>
+            <input onChange={this.onChange} value={this.state.text} />
+            <button>{'Add #' + (this.state.items.length + 1)}</button>
+          </form>
+        </div>
+      );
+    }
+  });
+  
+  React.render(<TodoApp />, 
+    document.getElementById('content'));
+  </script>
+</html>

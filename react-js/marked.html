@@ -1,0 +1,53 @@
+<!-- You can load this index.html in the web browser.
+     It does not require a server. -->
+<html>
+  <head>
+    <title>React.js: External Plugins</title>
+    <script src="https://fb.me/react-0.13.1.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>                           
+  </head>
+  <body>
+    <div id="content"></div>
+  </body>
+
+  <script type="text/jsx">
+
+  // Note: handleChange is a bit odd but seems to be a common pattern for React.
+
+  // Note: React built-ins include "refs", "state", "props".
+
+  var MarkdownEditor = React.createClass({
+    getInitialState: function() {
+      return {
+        value: 'Type some *markdown* here!'  // the value of the textarea
+      };
+    },
+    handleChange: function() {
+      this.setState({value: React.findDOMNode(this.refs.textarea).value});
+    },
+    render: function() {
+      return (
+        <div className="MarkdownEditor">
+          <h3>Input</h3>
+          <textarea
+            onChange={this.handleChange}
+            ref="textarea"
+            defaultValue={this.state.value} />
+          <h3>Output</h3>
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{
+              __html: marked(this.state.value, {sanitize: true})
+            }}
+          />
+        </div>
+      );
+    }
+  });
+  
+  React.render(
+    <MarkdownEditor />, 
+    document.getElementById('content'));
+  </script>
+</html>
