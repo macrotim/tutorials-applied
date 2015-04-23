@@ -18,6 +18,10 @@ import tempfile
 # Note: This is what unit testing looked like in an unstable build of
 # Flask-1.0.
 
+# Note: The purpose of the "client" fixture is to setup an instance of the
+# Flaskr app and provide a test-client to exercise the app. The database is
+# initialized and torn down for each test.
+
 @pytest.fixture
 def client(request):
     db_fd, flaskr.app.config['DATABASE'] = tempfile.mkstemp()
