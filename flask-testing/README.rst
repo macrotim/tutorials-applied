@@ -15,4 +15,8 @@ Unit testing looks cleaner in an unstable build of Flask-1.0. Try it out:
 Flask-Testing
 =============
 
-WIP.
+The Flask-Testing extension provides unit testing utilities for Flask.
+
+`Overview`_.
+
+.. _Overview: https://pythonhosted.org/Flask-Testing/
