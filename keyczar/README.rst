@@ -5,4 +5,4 @@ Keyczar is an open source cryptographic toolkit designed to make it easier and s
 
 `Overview`_.
 
-.. _Tutorial: https://github.com/google/keyczar
+.. _Overview: https://github.com/google/keyczar
