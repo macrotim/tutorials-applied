@@ -1,0 +1,59 @@
+<html>
+  <body></body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
+
+  <script id="entry-template" type="text/x-handlebars-template">
+    <div class="entry">
+      <h1>{{title}}</h1>
+      <div class="body">
+        {{body}}
+      </div>
+    </div>
+  </script>
+
+  <script>
+  (function() {
+    // Intro.
+    var source   = $("#entry-template").html();
+    var template = Handlebars.compile(source);
+
+    $.each(['first', 'second', 'third'], function(i, adjective) {
+      var context = {title: "My " + adjective + " Post", body: "This is my " + adjective + " post!"};
+      var html    = template(context);
+      $('body').append(html);
+    });
+
+    // Block Expressions: list.
+    var source = "{{#list people}}{{firstName}} {{lastName}}{{/list}}";
+    var template = Handlebars.compile(source);
+    Handlebars.registerHelper('list', function(items, options) {
+      var out = "<ul>";
+
+      for(var i=0, l=items.length; i<l; i++) {
+        out = out + "<li>" + options.fn(items[i]) + "</li>";
+      }
+
+      return out + "</ul>";
+    });
+    var context = {
+      people: [
+        {firstName: "Yehuda", lastName: "Katz"},
+        {firstName: "Carl", lastName: "Lerche"},
+        {firstName: "Alan", lastName: "Johnson"}
+      ]
+    };
+    $('body').append(template(context));
+
+    // Block Expressions: format string.
+    Handlebars.registerHelper('moneyFormat', function(str, options) {
+      return "$" + str;
+    });
+    var source = "<div>{{#moneyFormat cost}}{{/moneyFormat}}</div>";
+    var template = Handlebars.compile(source);
+    var context = {cost: 15};
+    $('body').append(template(context));
+  })();
+  </script>
+</html>
