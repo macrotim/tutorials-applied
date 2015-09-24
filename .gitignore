@@ -1,4 +1,5 @@
 *.pyc
+.cache
 .sass-cache
 bower_components
 build
