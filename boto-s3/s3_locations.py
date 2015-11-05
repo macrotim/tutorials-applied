@@ -1,4 +1,5 @@
-"""Benchmark time to put and get from buckets in various locations."""
+"""To put the boto.s3 API into practice, lets benchmark reading and writing to
+   buckets located around the world."""
 
 import random
 import time
@@ -10,10 +11,16 @@ from boto.s3.connection import S3Connection
 from boto.s3.connection import Location
 from boto.s3.key import Key
 
-bucket_prefix = sys.argv[1]
-conn = S3Connection()
 
-for location in (Location.SAEast, Location.USWest2, Location.USWest, Location.EU):
+LOCATIONS = (Location.SAEast, Location.USWest2, Location.USWest, Location.EU)
+
+# Whatever bucket-prefix you choose, four new buckets will be created,
+# one for each LOCATIONS.
+bucket_prefix = sys.argv[1]
+
+conn = S3Connection()
+for location in LOCATIONS:
+    print
     print "> Benchmarking against", location
 
     # Create or get the bucket.
