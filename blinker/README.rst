@@ -5,4 +5,8 @@ Blinker provides fast & simple object-to-object and broadcast signaling for Pyth
 
 `Tutorial`_.
 
+Run tests with:
+
+    py.test --cov-config ../pytest-cov/.coveragerc --cov=.
+
 .. _Tutorial: https://pythonhosted.org/blinker/
