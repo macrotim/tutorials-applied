@@ -1,5 +1,9 @@
 """Raymond Hettinger recommends using functools.partial to rewrite
-   a "while True" into a for-loop. https://www.youtube.com/watch?v=OSGv2VnC0go"""
+   a "while True" into a for-loop.
+
+   Video: https://www.youtube.com/watch?v=OSGv2VnC0go
+   """
+
 import random
 from functools import  partial
 

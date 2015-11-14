@@ -1,7 +1,8 @@
 """By defining __call__, MyClass is callable which allows
-functools.partial to wrap instances of MyClass."""
+   functools.partial to wrap instances of MyClass."""
 
 import functools
+from util import show_details
 
 class MyClass(object):
     """Demonstration class for functools"""
@@ -24,18 +25,6 @@ class MyClass(object):
         """Docstring for MyClass.__call__"""
         print '\tcalled object with:', (self, e, f)
         return
-
-def show_details(name, f):
-    """Show details of a callable object."""
-    print '%s:' % name
-    print '\tobject:', f
-    print '\t__name__:',
-    try:
-        print f.__name__
-    except AttributeError:
-        print '(no __name__)'
-    print '\t__doc__', repr(f.__doc__)
-    return
 
 o = MyClass()
 

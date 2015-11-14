@@ -1,23 +1,11 @@
 """functools.update_wrapper"""
 
 import functools
+from util import show_details
 
 def myfunc(a, b=2):
     """Docstring for myfunc()."""
     print '\tcalled myfunc with:', (a, b)
-    return
-
-def show_details(name, f):
-    """Show details of a callable object."""
-    print '%s:' % name
-    print '\tobject:', f
-    print '\t__name__:',
-    try:
-        print f.__name__
-    except AttributeError:
-        print '(no __name__)'
-    print '\t__doc__', repr(f.__doc__)
-    print
     return
 
 # myfunc is a standard function.
