@@ -1,0 +1,8 @@
+Flask-SQLAlchemy
+================
+
+Flask-SQLAlchemy is an extension for Flask that adds support for SQLAlchemy to your application. It requires SQLAlchemy 0.6 or higher. It aims to simplify using SQLAlchemy with Flask by providing useful defaults and extra helpers that make it easier to accomplish common tasks.
+
+`Quickstart`_
+
+.. _Quickstart: https://pythonhosted.org/Flask-SQLAlchemy/quickstart.html
