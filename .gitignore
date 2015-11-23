@@ -1,4 +1,5 @@
 *.pyc
+*.rdb
 .cache
 .coverage
 .sass-cache
