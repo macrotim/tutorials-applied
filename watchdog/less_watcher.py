@@ -12,17 +12,20 @@ class LessWatcher(object):
     """Watches the specified directory for filesystem changes."""
 
     def __init__(self, path):
+        self.path = path
         self._changed = False
-
-        event_handler = LessWatcher.EventHandler(self)
-        observer = Observer()
-        observer.schedule(event_handler, path, recursive=True)
-        observer.start()
-        self._observer = observer
 
     def has_changed(self):
         v, self._changed = self._changed, False
         return v
+
+    def start(self):
+        event_handler = LessWatcher.EventHandler(self)
+        observer = Observer()
+        observer.schedule(event_handler, self.path, recursive=True)
+        observer.start()
+        self._observer = observer
+        return self
 
     def stop(self):
         self._observer.stop()
@@ -43,7 +46,7 @@ if __name__ == "__main__":
     path = sys.argv[1] if len(sys.argv) > 1 else '.'
     print "Watching directory:", path
 
-    less_watcher = LessWatcher(path)
+    less_watcher = LessWatcher(path).start()
     try:
         while True:
             print
