@@ -53,4 +53,14 @@ def test_sideeffect():
     assert m(42) == "Called with 42"
     assert m(43) == "Called with 43"
 
+def test_wraps():
+    # Tim: This is how you build a spy.
+    class Requests(object):
+        def get(self, url):
+            return 'stubbed response from %s' % url
 
+    request = Requests()
+    mock_request = Mock(wraps=request) # "wraps"
+
+    assert 'response from' in mock_request.get('http://python.org')
+    mock_request.get.assert_called_with('http://python.org')
