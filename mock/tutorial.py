@@ -34,3 +34,23 @@ def test_exception():
     # Tim: Force an exception.
     m = Mock(side_effect=Exception('Boom!'))
     pytest.raises(Exception, m)
+
+def test_sideeffect():
+    # Tim: Mock.side_effect takes a lambda.
+    m = Mock()
+    m.side_effect = lambda x: {42: "Called with 42", 43: "Called with 43"}.get(x)
+    assert m(42) == "Called with 42"
+    assert m(43) == "Called with 43"
+
+    # Tim: Alternatively, pass a function.
+    def my_side_effect(*args, **kwargs):
+        return {
+            42: "Called with 42",
+            43: "Called with 43"
+        }.get(args[0])
+    m = Mock()
+    m.side_effect = my_side_effect
+    assert m(42) == "Called with 42"
+    assert m(43) == "Called with 43"
+
+
