@@ -5,6 +5,6 @@ QUnit is a powerful, easy-to-use JavaScript unit testing framework. It's used by
 
 Run the tests by loading in the browser.
 
-`Cookbook`_
+`Website`_
 
-.. _Cookbook: http://qunitjs.com/cookbook/
+.. _Website: http://qunitjs.com/

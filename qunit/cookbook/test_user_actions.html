@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>QUnit: Testing User Actions</title>
+  <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.20.0.css">
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="http://code.jquery.com/qunit/qunit-1.20.0.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script>
+    function KeyLogger( target ) {
+      this.target = target;
+      this.log = [];
+     
+      var that = this;
+      this.target.off( "keydown" ).on( "keydown", function( event ) {
+        that.log.push( event.keyCode );
+      });
+    }
+    QUnit.test( "keylogger api behavior", function( assert ) {
+      var doc = $( document ),
+        keys = new KeyLogger( doc );
+     
+      // Trigger the key event
+      doc.trigger( $.Event( "keydown", { keyCode: 9 } ) );
+     
+      // Verify expected behavior
+      assert.deepEqual( keys.log, [ 9 ], "correct key was logged" );
+    });
+  </script>
+</body>
+</html>

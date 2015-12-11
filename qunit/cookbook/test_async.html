@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>QUnit: Start unit testing with this template.</title>
+  <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.20.0.css">
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <input id="test-input" type="text"></input>
+
+  <script src="http://code.jquery.com/qunit/qunit-1.20.0.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  <script>
+    QUnit.test( "asynchronous test: async input focus", function( assert ) {
+      var done = assert.async();
+      var input = $( "#test-input" ).focus();
+      setTimeout(function() {
+        assert.equal( document.activeElement, input[0], "Input was focused" );
+        done();
+      });
+    });
+  </script>
+</body>
+</html>
