@@ -1,11 +1,11 @@
-Jasmine
-=======
+Jasmine Runner
+==============
 
-Jasmine is a Behavior Driven Development testing framework for JavaScript. It does not rely on browsers, DOM, or any JavaScript framework. Thus it's suited for websites, Node.js projects, or anywhere that JavaScript can run.
+The Python runner serves up a project's Jasmine suite in a browser so you can focus on your code instead of manually editing script tags in the Jasmine runner HTML file.
 
-`Intro`_
+`Overview`_
 
-.. _Intro: http://jasmine.github.io/2.3/introduction.html
+.. _Overview: https://github.com/jasmine/jasmine-py
 
 Setup
 =====
