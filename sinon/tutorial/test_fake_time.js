@@ -1,3 +1,5 @@
+/* Testing time-sensitive logic without the wait is a breeze with Sinon.JS. */
+
 function throttle(callback) {
     var timer;
     return function () {
