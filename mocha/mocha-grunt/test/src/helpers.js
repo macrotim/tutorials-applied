@@ -1,0 +1,9 @@
+
+var __cov_k4_$ddYbiMvCZTvZEcTqpw = (Function('return this'))();
+if (!__cov_k4_$ddYbiMvCZTvZEcTqpw.__coverage__) { __cov_k4_$ddYbiMvCZTvZEcTqpw.__coverage__ = {}; }
+__cov_k4_$ddYbiMvCZTvZEcTqpw = __cov_k4_$ddYbiMvCZTvZEcTqpw.__coverage__;
+if (!(__cov_k4_$ddYbiMvCZTvZEcTqpw['src/js/helpers.js'])) {
+   __cov_k4_$ddYbiMvCZTvZEcTqpw['src/js/helpers.js'] = {"path":"src/js/helpers.js","s":{"1":0,"2":0,"3":0,"4":0},"b":{"1":[0,0]},"f":{"1":0,"2":0,"3":0},"fnMap":{"1":{"name":"(anonymous_1)","line":1,"loc":{"start":{"line":1,"column":23},"end":{"line":1,"column":36}}},"2":{"name":"(anonymous_2)","line":7,"loc":{"start":{"line":7,"column":20},"end":{"line":7,"column":43}}},"3":{"name":"(anonymous_3)","line":9,"loc":{"start":{"line":9,"column":30},"end":{"line":9,"column":47}}}},"statementMap":{"1":{"start":{"line":1,"column":0},"end":{"line":17,"column":3}},"2":{"start":{"line":3,"column":4},"end":{"line":15,"column":6}},"3":{"start":{"line":9,"column":12},"end":{"line":11,"column":15}},"4":{"start":{"line":10,"column":16},"end":{"line":10,"column":66}}},"branchMap":{"1":{"line":10,"type":"cond-expr","locations":[{"start":{"line":10,"column":43},"end":{"line":10,"column":57}},{"start":{"line":10,"column":60},"end":{"line":10,"column":65}}]}}};
+}
+__cov_k4_$ddYbiMvCZTvZEcTqpw = __cov_k4_$ddYbiMvCZTvZEcTqpw['src/js/helpers.js'];
+__cov_k4_$ddYbiMvCZTvZEcTqpw.s['1']++;define(['underscore'],function(_){__cov_k4_$ddYbiMvCZTvZEcTqpw.f['1']++;__cov_k4_$ddYbiMvCZTvZEcTqpw.s['2']++;return{_:_,prefixEach:function(arr,prefix){__cov_k4_$ddYbiMvCZTvZEcTqpw.f['2']++;__cov_k4_$ddYbiMvCZTvZEcTqpw.s['3']++;return _.map(arr,function(value){__cov_k4_$ddYbiMvCZTvZEcTqpw.f['3']++;__cov_k4_$ddYbiMvCZTvZEcTqpw.s['4']++;return _.isString(value)?(__cov_k4_$ddYbiMvCZTvZEcTqpw.b['1'][0]++,prefix+value):(__cov_k4_$ddYbiMvCZTvZEcTqpw.b['1'][1]++,value);});}};});
