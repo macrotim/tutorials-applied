@@ -1,4 +1,5 @@
-define(['helpers'], function (helpers) {
+define(function (require) {
+    var helpers = require('helpers');
 
     describe('helpers', function () {
 
