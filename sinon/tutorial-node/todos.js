@@ -1,11 +1,14 @@
-var jQuery = require('jquery');
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 exports.getTodos = function getTodos(listId, callback) {
-    jQuery.ajax({
-        url: "/todo/" + listId + "/items",
-        success: function (data) {
-            // Node-style CPS: callback(err, data)
-            callback(null, data);
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+        if (this.readyState === 4) {
+            callback(null, this.responseText);
         }
-    });
+    };
+
+    xhr.open("GET", "/todo/" + listId + "/items");
+    xhr.send();
 };
