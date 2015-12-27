@@ -1,5 +1,5 @@
-Sinon.js
-========
+Sinon.js via browser
+====================
 
 Standalone and test framework agnostic JavaScript test spies, stubs and mocks.
 
